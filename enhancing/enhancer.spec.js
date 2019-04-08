@@ -79,7 +79,23 @@ describe("Challenge Project - tests", () => {
       });
     });
 
-    
+    describe("Fail function tests", () => {
+      it("enhancement is less than 15, the durability of the item is decreased by 5.", () => {
+        expect(
+          enhancer.fail({
+            name: "Hammer",
+            durability: 95,
+            enhancement: 10
+          })
+        ).toEqual({
+          name: "Hammer",
+          durability: 90,
+          enhancement: 10
+        });
+      });
+
+      
+    });
     //
   });
 });
