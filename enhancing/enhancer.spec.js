@@ -30,6 +30,30 @@ describe("Challenge Project - tests", () => {
         enhancement: 11
       });
     });
+
+    it("Test enhancement level over 20", () => {
+      expect(
+        enhancer.succeed({
+          name: "Hammer",
+          durability: 95,
+          enhancement: 20
+        })
+      ).toEqual({
+        error: "Cannot enhace item level over 20"
+      });
+    });
+
+    it("Test - enter incorect data in the object: number instead of string", () => {
+      expect(
+        enhancer.succeed({
+          name: "Hammer",
+          durability: "95",
+          enhancement: 20
+        })
+      ).toEqual({
+        error: "Incorect data"
+      });
+    });
     //
   });
 });
