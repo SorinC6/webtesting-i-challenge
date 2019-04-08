@@ -164,7 +164,33 @@ describe("Challenge Project - tests", () => {
     });
 
     describe("Test for get function", () => {
-        if('f the enhancement level is 0, the the name is not modified.', ()=>{})
+      it("if the enhancement level is 0, the the name is not modified.", () => {
+        expect(
+          enhancer.get({
+            name: "Hammer",
+            durability: 100,
+            enhancement: 0
+          })
+        ).toEqual({
+          name: "Hammer",
+          durability: 100,
+          enhancement: 0
+        });
+      });
+
+      it(" enhancement level is greater than 0, change the name to include the enhancement level,", () => {
+        expect(
+          enhancer.get({
+            name: "Hammer",
+            durability: 100,
+            enhancement: 8
+          })
+        ).toEqual({
+          name: "[+8] Hammer",
+          durability: 100,
+          enhancement: 8
+        });
+      });
     });
     //
   });

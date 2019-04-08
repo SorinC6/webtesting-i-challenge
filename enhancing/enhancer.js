@@ -21,6 +21,7 @@ The item's enhancement increases by 1.
 If the item enhancement level is 20, the enhancement level is not changed.
 The durability of the item is not changed.
 */
+
 function succeed(item) {
   if (
     typeof item.name !== "string" ||
