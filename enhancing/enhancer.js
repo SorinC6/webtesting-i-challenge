@@ -76,10 +76,47 @@ function fail(item) {
   }
 }
 
+/*
+a repair(item) method that accepts an item object and returns a new item with the durability restored to 100. 
+This method is the simplest of the three and would be a good starting point on this project.
+
+*/
 function repair(item) {
-  return { ...item };
+  if (
+    typeof item.name !== "string" ||
+    typeof item.durability !== "number" ||
+    typeof item.enhancement !== "number" ||
+    item.enhancement > 20 ||
+    item.enhancement < 0 ||
+    item.durability > 100 ||
+    item.durability < 0
+  ) {
+    return { error: "Incorect data" };
+  } else if (item.durability === 100) {
+    return { error: "durability already restored" };
+  }
+  return {
+    ...item,
+    durability: 100
+  };
 }
 
+/*
+Add a get() method to the enhancer object that takes an item and returns a new item with the name 
+property modified according to the following rules:
+if the enhancement level is 0, the the name is not modified.
+if the enhancement level is greater than 0, change the name to include the enhancement level, 
+preceded by a plus sign ( + ), between square brackets before the item's name. Example: the name of a "Iron Sword" enhanced to 7 would be "[+7] Iron Sword".
+*/
+
 function get(item) {
-  return { ...item };
+  if (item.enhancement === 0) {
+    return { ...item };
+  } else if (item.enhancement > 0) {
+    return {
+      ...item,
+      name: `[+${item.enhancement}] ${item.name}`
+    };
+  } else if (item.enhancement)
+    return { error: "Enhancement whot not be below 0" };
 }

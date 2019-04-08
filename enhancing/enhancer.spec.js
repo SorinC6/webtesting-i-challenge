@@ -121,6 +121,50 @@ describe("Challenge Project - tests", () => {
           enhancement: 17
         });
       });
+
+      it(" tested incorect data : string instead of number", () => {
+        expect(
+          enhancer.fail({
+            name: "Hammer",
+            durability: "95",
+            enhancement: 18
+          })
+        ).toEqual({
+          error: "Incorect data"
+        });
+      });
+    });
+
+    describe("Repair function tests", () => {
+      it("durability restored to 100", () => {
+        expect(
+          enhancer.repair({
+            name: "Hammer",
+            durability: 1,
+            enhancement: 10
+          })
+        ).toEqual({
+          name: "Hammer",
+          durability: 100,
+          enhancement: 10
+        });
+      });
+
+      it("durability already to 100", () => {
+        expect(
+          enhancer.repair({
+            name: "Hammer",
+            durability: 100,
+            enhancement: 10
+          })
+        ).toEqual({
+          error: "durability already restored"
+        });
+      });
+    });
+
+    describe("Test for get function", () => {
+        if('f the enhancement level is 0, the the name is not modified.', ()=>{})
     });
     //
   });
