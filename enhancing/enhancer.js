@@ -37,7 +37,7 @@ function succeed(item) {
   }
   return {
     ...item,
-    enhancement: enhancement + 1
+    enhancement: item.enhancement + 1
   };
 }
 
