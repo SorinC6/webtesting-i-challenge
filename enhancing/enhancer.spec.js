@@ -1,20 +1,16 @@
 const enhancer = require("./enhancer.js");
 // test away!
 
+const testItem = {
+  name: "Hammer",
+  durability: 95,
+  enhancement: 0
+};
+
 describe("Challenge Project - tests", () => {
   describe("succed function", () => {
     it("Test  enhancement increases by 1", () => {
-      expect(
-        enhancer.succeed({
-          name: "Hammer",
-          durability: 95,
-          enhancement: 0
-        })
-      ).toEqual({
-        name: "Hammer",
-        durability: 95,
-        enhancement: 1
-      });
+      expect(enhancer.succeed(testItem).enhancement).toEqual(1);
     });
 
     it("Test  enhancement increases by 1", () => {
@@ -142,12 +138,8 @@ describe("Challenge Project - tests", () => {
             name: "Hammer",
             durability: 1,
             enhancement: 10
-          })
-        ).toEqual({
-          name: "Hammer",
-          durability: 100,
-          enhancement: 10
-        });
+          }).durability
+        ).toEqual(100);
       });
 
       it("durability already to 100", () => {
