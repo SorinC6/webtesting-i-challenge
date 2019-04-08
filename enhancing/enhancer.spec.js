@@ -94,7 +94,33 @@ describe("Challenge Project - tests", () => {
         });
       });
 
-      
+      it("enhancement is 15 or more, the durability of the item is decreased by 10.", () => {
+        expect(
+          enhancer.fail({
+            name: "Hammer",
+            durability: 95,
+            enhancement: 16
+          })
+        ).toEqual({
+          name: "Hammer",
+          durability: 85,
+          enhancement: 16
+        });
+      });
+
+      it(" enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17", () => {
+        expect(
+          enhancer.fail({
+            name: "Hammer",
+            durability: 95,
+            enhancement: 18
+          })
+        ).toEqual({
+          name: "Hammer",
+          durability: 95,
+          enhancement: 17
+        });
+      });
     });
     //
   });

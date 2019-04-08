@@ -63,13 +63,12 @@ function fail(item) {
       ...item,
       durability: item.durability - 5
     };
-  } else if (item.enhancement >= 15) {
+  } else if (item.enhancement === 15 || item.enhancement === 16) {
     return {
       ...item,
       durability: item.durability - 10
     };
-  }
-  if (item.enhancement > 16) {
+  } else if (item.enhancement > 16) {
     return {
       ...item,
       enhancement: item.enhancement - 1
