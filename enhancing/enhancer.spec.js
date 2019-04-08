@@ -54,6 +54,32 @@ describe("Challenge Project - tests", () => {
         error: "Incorect data"
       });
     });
+
+    it("Test - enter incorect data in the object: durability over 100", () => {
+      expect(
+        enhancer.succeed({
+          name: "Hammer",
+          durability: 120,
+          enhancement: 20
+        })
+      ).toEqual({
+        error: "Incorect data"
+      });
+    });
+
+    it("Test - enter incorect data in the object: enhancement over 20", () => {
+      expect(
+        enhancer.succeed({
+          name: "Hammer",
+          durability: 80,
+          enhancement: 22
+        })
+      ).toEqual({
+        error: "Incorect data"
+      });
+    });
+
+    
     //
   });
 });
